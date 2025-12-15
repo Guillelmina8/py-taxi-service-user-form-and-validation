@@ -130,4 +130,6 @@ class DriverDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = get_user_model()
-    queryset = get_user_model().objects.all().prefetch_related("cars__manufacturer")
+    queryset = get_user_model().objects.all().prefetch_related(
+        "cars__manufacturer"
+    )

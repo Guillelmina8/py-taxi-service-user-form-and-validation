@@ -71,7 +71,7 @@ class AssignDriverToCar(LoginRequiredMixin, generic.View):
         car = get_object_or_404(Car, pk=pk)
 
         if not driver.license_number:
-            return redirect("taxi:driver-create")
+            return redirect("taxi:driver-update")
         if driver in car.drivers.all():
             car.drivers.remove(driver)
         else:
